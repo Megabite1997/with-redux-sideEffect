@@ -11,11 +11,9 @@ const cartSlice = createSlice({
       specifyItem.quantity++;
     },
 
-    decrement(state, action) {
+    removeCart(state, action) {
       const specifyItem = state.find((item) => item.id === action.payload.id);
-
       specifyItem.quantity--;
-
       if (specifyItem.quantity === 0) {
         const getIndex = state.indexOf(specifyItem);
         state.splice(getIndex, 1);
@@ -24,9 +22,7 @@ const cartSlice = createSlice({
 
     addCart(state, action) {
       const { id, title, price, description } = action.payload;
-
       const existItemInCart = state.find((item) => item.id === id);
-
       if (existItemInCart) {
         existItemInCart.quantity++;
       } else {
