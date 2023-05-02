@@ -1,4 +1,4 @@
-### Handling Async Tasks with Redux.
+## Handling Async Tasks with Redux.
 Sending HTTP requests and similar tasks
 Reducer functions must be pure, side-effect free, synchronous functions.
 
