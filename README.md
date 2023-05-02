@@ -1,5 +1,5 @@
 ## Handling Async Tasks with Redux.
-Sending HTTP requests and similar tasks
+Sending HTTP requests and similar tasks.
 Reducer functions must be pure, side-effect free, synchronous functions.
 
 ### Where should side-effects and async tasks be executed?
