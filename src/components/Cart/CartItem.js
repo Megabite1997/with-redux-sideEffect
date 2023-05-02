@@ -7,7 +7,7 @@ const CartItem = (props) => {
   const { id, title, quantity, total, price } = props.item;
 
   const decreaseCartItem = () => {
-    dispatch(cartActions.decrement({ id }));
+    dispatch(cartActions.removeCart({ id }));
   };
   const increaseCartItem = () => {
     dispatch(cartActions.increment({ id }));

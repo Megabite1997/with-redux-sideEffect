@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const cartInitialState = [];
-
 const cartSlice = createSlice({
   name: "cart",
-  initialState: cartInitialState,
+  initialState: [],
   reducers: {
     increment(state, action) {
       const specifyItem = state.find((item) => item.id === action.payload.id);
