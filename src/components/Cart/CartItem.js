@@ -4,13 +4,13 @@ import { cartActions } from "../../store/cart-slice";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
-  const { title, quantity, total, price } = props.item;
+  const { id, title, quantity, total, price } = props.item;
 
   const decreaseCartItem = () => {
-    dispatch(cartActions.decrement({ title }));
+    dispatch(cartActions.decrement({ id }));
   };
   const increaseCartItem = () => {
-    dispatch(cartActions.increment({ title }));
+    dispatch(cartActions.increment({ id }));
   };
 
   return (

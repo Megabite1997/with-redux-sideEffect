@@ -7,16 +7,12 @@ const cartSlice = createSlice({
   initialState: cartInitialState,
   reducers: {
     increment(state, action) {
-      const specifyItem = state.find(
-        (item) => item.title === action.payload.title,
-      );
+      const specifyItem = state.find((item) => item.id === action.payload.id);
       specifyItem.quantity++;
     },
 
     decrement(state, action) {
-      const specifyItem = state.find(
-        (item) => item.title === action.payload.title,
-      );
+      const specifyItem = state.find((item) => item.id === action.payload.id);
 
       specifyItem.quantity--;
 
@@ -27,14 +23,14 @@ const cartSlice = createSlice({
     },
 
     addCart(state, action) {
-      const { title, price, description } = action.payload;
+      const { id, title, price, description } = action.payload;
 
-      const existItemInCart = state.find((item) => item.title === title);
+      const existItemInCart = state.find((item) => item.id === id);
 
       if (existItemInCart) {
         existItemInCart.quantity++;
       } else {
-        state.push({ title, price, description, quantity: 1 });
+        state.push({ id, title, price, description, quantity: 1 });
       }
     },
   },

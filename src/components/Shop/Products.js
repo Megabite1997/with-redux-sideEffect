@@ -13,6 +13,7 @@ const Products = (props) => {
           productItems.map((item, index) => (
             <ProductItem
               key={index}
+              id={item.id}
               title={item.title}
               price={item.price}
               description={item.description}

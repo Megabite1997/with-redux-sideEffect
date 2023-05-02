@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const productItemInitialState = [
   {
+    id: "p1",
     title: "Test",
     price: 6,
     description: "This is a first product - amazing!",
   },
   {
+    id: "p2",
     title: "Test 2",
     price: 7,
     description: "This is a second product - good!",
