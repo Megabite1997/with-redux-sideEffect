@@ -28,8 +28,66 @@ const cartSlice = createSlice({
         state.push({ id, title, price, description, quantity: 1 });
       }
     },
+
+    receivedCart(state, action) {
+      const cart = action.payload;
+
+      if (cart) {
+        state.push(...cart);
+      } else {
+        return;
+      }
+    },
   },
 });
+
+export const fetchCartData = () => {
+  return async (dispatch) => {
+    dispatch(
+      uiActions.showNotification({
+        status: "fetching",
+        title: "Fetchnig...",
+        message: "Fetching cart data!",
+      }),
+    );
+
+    const fetchRequest = async () => {
+      const response = await fetch(
+        "https://react-redux-8e5a7-default-rtdb.firebaseio.com/cart.json",
+      );
+
+      if (!response.ok) {
+        throw new Error("Fetching cart data failed.");
+      }
+
+      const data = await response.json();
+
+      return data;
+    };
+
+    try {
+      const cartData = await fetchRequest();
+      dispatch(cartActions.receivedCart(cartData));
+
+      dispatch(
+        uiActions.showNotification({
+          status: "success",
+          title: "Success!",
+          message: "Sent cart data successfully!",
+        }),
+      );
+    } catch (error) {
+      console.error(error);
+      dispatch(
+        uiActions.showNotification({
+          status: "error",
+          title: "Error!",
+          message: "Fetched cart data failed!",
+        }),
+      );
+    }
+  };
+};
 
 export const sendCartData = (cart) => {
   return async (dispatch) => {
