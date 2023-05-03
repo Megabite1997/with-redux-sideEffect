@@ -8,6 +8,6 @@ Reducer functions must be <ins>pure</ins>, <ins>side-effect free</ins>, <ins>syn
 
 #### What is an 'action creator'?
 
-When you created a slice, "createSlice", with reducer functions. The "action creators" will be created automatically, They are going to have the same name as reducer functions. For example,
+When you create a slice, "createSlice", which has reducer functions. The "action creator" will be created automatically when you create a reducer function, They are going to have the same name as reducer functions. For example,
   
 <img width="1340" alt="Untitled" src="https://user-images.githubusercontent.com/51529613/235847888-75f185e0-6894-4db8-a041-e497cbedd5c8.png">
