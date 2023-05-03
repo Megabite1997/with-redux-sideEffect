@@ -6,4 +6,3 @@ Reducer functions must be <ins>pure</ins>, <ins>side-effect free</ins>, <ins>syn
 1) Directly inside the component (e.g. useEffect()).
 2) We write own "action creator" functions, Thunks.
 
-### The Redux DevTools
