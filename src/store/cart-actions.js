@@ -26,9 +26,22 @@ export const fetchCartData = () => {
     };
 
     try {
-      const cartData = await fetchRequest();
+      let cartData = await fetchRequest();
 
-      dispatch(cartActions.receivedCart(cartData));
+      // In case, empty data in database, no keys.
+      if (cartData === null) {
+        cartData = { items: [], totalQuantity: 0 };
+      }
+
+      // dispatch(cartActions.receivedCart(cartData))
+      // Changed "receivedCart" payload to the condition that 'items' key is undefined.
+      // We wll add an empty array instead, to avoid error 'undefined' use with find().
+      dispatch(
+        cartActions.receivedCart({
+          items: cartData.items || [],
+          totalQuantity: cartData.totalQuantity,
+        }),
+      );
 
       // dispatch(
       //   uiActions.showNotification({

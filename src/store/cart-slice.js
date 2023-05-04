@@ -23,7 +23,7 @@ const cartSlice = createSlice({
 
     addCart(state, action) {
       const { id, title, price, description } = action.payload;
-      const existItemInCart = state.items?.find((item) => item.id === id);
+      const existItemInCart = state.items.find((item) => item.id === id);
       state.totalQuantity++;
       state.changed = true;
       if (existItemInCart) {
