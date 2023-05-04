@@ -4,9 +4,9 @@ import { uiActions } from "../../store/ui-slice";
 
 const CartButton = (props) => {
   const distpatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart.items);
 
-  const allQuantityCartItems = cartItems.reduce(
+  const allQuantityCartItems = cartItems?.reduce(
     (acc, curr) => acc + curr.quantity,
     0,
   );

@@ -10,7 +10,7 @@ const CartItem = (props) => {
     dispatch(cartActions.removeCart({ id }));
   };
   const increaseCartItem = () => {
-    dispatch(cartActions.increment({ id }));
+    dispatch(cartActions.addCart({ id }));
   };
 
   return (
